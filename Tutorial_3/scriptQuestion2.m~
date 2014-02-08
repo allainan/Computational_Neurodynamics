@@ -1,0 +1,24 @@
+% Watts Strogatz Method
+% i = 0:0.001:1;
+% 
+% for j=1:length(i)
+%     CIJ = NetworkWattsStrogatz(50,4,i(j));
+%     res(j) = SmallWorldIndex(CIJ);
+%     waitbar(j/length(i));
+% end
+% 
+% semilogx(i, res, 'o')
+
+% Global and local efficiency
+i = 0:0.001:1;
+
+CIJ = NetworkWattsStrogatz(50,4,0.1);
+efficiency_wei(CIJ,1)
+ 
+ for j=1:length(i)
+     CIJ = NetworkWattsStrogatz(50,4,i(j));
+     res(j) = sum(efficiency_wei(CIJ,1))/
+     waitbar(j/length(i));
+ end
+ 
+ semilogx(i, res, 'o')
